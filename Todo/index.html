@@ -8,16 +8,25 @@
   <body>
     <div id="app">
       <article class="wrap">
+        <section class="todo-form">
         <!-- section要素追加 todo-form -->
-
+          <input type="text" name="todo-text" class="input-text" placeholder="please input todo" :value="text" @input="inputText">
           <!-- テキストボックスを追加 -->
-
+          <button class="add-button" @click="addTodo">ADD TODO</button>
           <!-- ボタンを追加 -->
-
+        </section>
         <!-- section要素追加 list-area -->
-
-              <!-- todosをリストレンダリング -->
-               
+        <section class="list-area">
+          <!-- todosをリストレンダリング -->
+          <div class="area-incomplete">
+            <p class="todo-title">incomplete items</p>
+            <ul class="todo-area">
+              <li v-for="(item,i) in todos" :key="i" class="list">
+                <span class="list-label">{{item.text}}</span>
+              </li>
+            </ul>
+          </div>
+        </section>
       </article>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
